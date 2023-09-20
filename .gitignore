@@ -1,0 +1,5 @@
+*/node_modules
+*/Cargo.lock
+*/target
+*/.env
+*/yarn.lock
