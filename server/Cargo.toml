@@ -7,7 +7,10 @@ edition = "2021"
 
 [dependencies]
 actix-web = "4.4.0"
+async-trait = "0.1.73"
 chrono = "0.4.31"
+dotenv = "0.15.0"
+envy = "0.4.2"
 jsonwebtoken = "8.3.0"
 mongodb = "2.6.1"
 serde = { version = "1.0.188", features = ["derive"] }
