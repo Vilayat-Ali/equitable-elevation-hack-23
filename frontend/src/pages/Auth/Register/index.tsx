@@ -108,6 +108,7 @@ const Register = () => {
             <FormLabel>Email address</FormLabel>
             <Input
               type="email"
+              name="email"
               placeholder="Enter your Email"
               value={registerInput.email}
               onChange={handleRegisterInput}
