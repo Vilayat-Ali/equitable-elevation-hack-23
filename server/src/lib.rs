@@ -10,6 +10,7 @@ pub struct ENV {
     pub address: String,
     pub port: u16,
     pub access_secret: String,
+    pub mongo_uri: String,
 }
 
 pub fn provide_env() -> ENV {

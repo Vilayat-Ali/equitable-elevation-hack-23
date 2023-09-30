@@ -21,7 +21,17 @@ pub fn generate_token(
             name: name.into(),
             email: email.into(),
         },
-        &jsonwebtoken::EncodingKey::from_secret(provide_env().address.as_ref()),
+        &jsonwebtoken::EncodingKey::from_secret(provide_env().access_secret.as_ref()),
     )?;
     Ok(token)
+}
+
+pub fn verify_token(token: &str) -> jsonwebtoken::errors::Result<JWTUserPayload> {
+    let decoded_data: jsonwebtoken::TokenData<JWTUserPayload> =
+        jsonwebtoken::decode::<JWTUserPayload>(
+            token,
+            &jsonwebtoken::DecodingKey::from_secret(provide_env().access_secret.as_ref()),
+            &jsonwebtoken::Validation::default(),
+        )?;
+    Ok(decoded_data.claims)
 }
