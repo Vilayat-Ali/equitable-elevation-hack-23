@@ -17,7 +17,7 @@ const useToggle = (initialState: boolean = false) => {
     [componentState]
   );
 
-  return [componentState, toggle, setComponentState];
+  return [componentState, toggle, setComponentState] as const;
 };
 
 export default useToggle;
