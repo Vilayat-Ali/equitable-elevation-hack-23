@@ -9,6 +9,7 @@ import {
   Box,
   Flex,
   FormControl,
+  Image,
   FormLabel,
   Input,
   Button,
@@ -55,6 +56,7 @@ const Register = () => {
     >
       {/* Image section */}
       <Box
+        display={{ base: "none", md: "block" }}
         width="45%"
         height="inherit"
         bgImage={RegisterBgImg}
@@ -65,7 +67,7 @@ const Register = () => {
 
       {/* Form section */}
       <Box
-        width="55%"
+        width={{ base: "100%", md: "55%" }}
         height="inherit"
         display="flex"
         flexDirection="row"
@@ -74,7 +76,7 @@ const Register = () => {
       >
         <Box
           as={VStack}
-          spacing="2"
+          spacing="3"
           width="85%"
           height="fit-content"
           shadow="md"
@@ -82,6 +84,12 @@ const Register = () => {
           borderRadius="5%"
         >
           <Text fontSize="40">Create Account</Text>
+          <VStack spacing="1">
+            <Image src="/logo.png" alt="logo" />
+            <Text fontSize={{ base: "xl", md: "3xl" }} color="#9B6ADE">
+              Helping Hands
+            </Text>
+          </VStack>
 
           {/*  Name */}
           <FormControl isRequired>

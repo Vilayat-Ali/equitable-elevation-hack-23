@@ -14,6 +14,7 @@ import {
   Button,
   VStack,
   Text,
+  Image,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -53,6 +54,7 @@ const Login = () => {
     >
       {/* Image section */}
       <Box
+        display={{ base: "none", md: "block" }}
         width="45%"
         height="inherit"
         bgImage={RegisterBgImg}
@@ -63,16 +65,18 @@ const Login = () => {
 
       {/* Form section */}
       <Box
-        width="55%"
+        width={{ base: "100%", md: "55%" }}
         height="inherit"
         display="flex"
-        flexDirection="row"
+        flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        bg="#FFF"
+        shadow={{ base: "md", md: "none" }}
       >
         <Box
           as={VStack}
-          spacing="2"
+          spacing="3"
           width="85%"
           height="fit-content"
           shadow="md"
@@ -80,6 +84,12 @@ const Login = () => {
           borderRadius="5%"
         >
           <Text fontSize="40">Login</Text>
+          <VStack spacing="1">
+            <Image src="/logo.png" alt="logo" />
+            <Text fontSize={{ base: "xl", md: "3xl" }} color="#9B6ADE">
+              Helping Hands
+            </Text>
+          </VStack>
 
           {/* username */}
           <FormControl isRequired>

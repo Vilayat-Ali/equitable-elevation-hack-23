@@ -1,13 +1,12 @@
 // components
-import { Button, Tooltip } from "@chakra-ui/react";
+// import { Button, Tooltip } from "@chakra-ui/react";
+import FeedLayout from "../../layouts/FeedLayout";
 
 const Home = () => {
   return (
-    <>
-      <Tooltip label="Ahmad">
-        <Button variant="solid">Press me</Button>
-      </Tooltip>
-    </>
+    <FeedLayout>
+      <div></div>
+    </FeedLayout>
   );
 };
 
