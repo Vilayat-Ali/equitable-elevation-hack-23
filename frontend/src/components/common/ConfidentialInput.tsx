@@ -21,6 +21,7 @@ const ConfidentialInput = ({ name, placeholder, value, setValue }: Props) => {
   return (
     <HStack spacing="1">
       <Input
+        color="#9B6ADE"
         type={showPassword ? "text" : "password"}
         name={name}
         value={value}

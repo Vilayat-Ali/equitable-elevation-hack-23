@@ -95,6 +95,7 @@ const Login = () => {
           <FormControl isRequired>
             <FormLabel>Email</FormLabel>
             <Input
+              color="#9B6ADE"
               type="email"
               name="email"
               placeholder="Enter your Email"
@@ -122,7 +123,9 @@ const Login = () => {
           </Text>
 
           {/* Button */}
-          <Button colorScheme="blue">Submit</Button>
+          <Button variant="solid" bgColor="#9B6ADE" color="#FFF">
+            Submit
+          </Button>
         </Box>
       </Box>
       {/* Form section */}
