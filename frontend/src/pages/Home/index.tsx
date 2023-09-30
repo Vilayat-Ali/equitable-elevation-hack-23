@@ -1,11 +1,10 @@
 // components
-// import { Button, Tooltip } from "@chakra-ui/react";
 import FeedLayout from "../../layouts/FeedLayout";
 
 const Home = () => {
   return (
     <FeedLayout>
-      <div></div>
+      <div><h1>sjhkfhd</h1></div>
     </FeedLayout>
   );
 };
