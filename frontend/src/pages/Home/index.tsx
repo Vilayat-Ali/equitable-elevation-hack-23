@@ -77,9 +77,9 @@ const Home = () => {
             {[...Array(40)].map((index) => (
               <Feed
                 key={index}
-                name={""}
-                title={""}
-                content={""}
+                name={"Mohd Ahmad"}
+                title={"Asking for help"}
+                content={"Meri gaand mein dard ho raha h"}
                 likes={0}
                 dislikes={0}
                 comments={0}
