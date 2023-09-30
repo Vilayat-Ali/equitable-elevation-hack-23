@@ -1,56 +1,85 @@
-import React from 'react';
-import { Box, Heading, Grid, GridItem, Textarea, Button, Text } from '@chakra-ui/react';
-import FeedLayout from '../../layouts/FeedLayout';
-import Feed from '../../cards/Feed'; 
+// lib
+import {
+  Flex,
+  Box,
+  Text,
+  List,
+  ListItem,
+  Avatar,
+  HStack,
+  Textarea,
+  Button,
+} from "@chakra-ui/react";
+
+// components
+import FeedLayout from "../../layouts/FeedLayout";
+import Feed from "../../cards/Feed";
 
 const Home = () => (
   <FeedLayout>
-    <Grid templateColumns="1fr 2fr 1fr" gap={4}>
-      {/* Left Column (User Info) */}
-      <GridItem colSpan={1}>
-        <Box>
-          <Heading as="h1" size="xl" mb={4}>
-            Profile
-          </Heading>
-          {/* Add user information here */}
-          <Box>
-            <Text>Name: Mohd Ahmad</Text>
-            <Text>Title: Software Engineer</Text>
-          </Box>
-        </Box>
-      </GridItem>
+    <Flex direction="row" justifyContent="space-evenly">
+      <Box w="20vw" h="30vh" p="2vw" borderRadius={"0.5vw"} shadow="md">
+        <Text
+          textAlign="center"
+          fontSize="2xl"
+          color="#9B6ADE"
+          fontWeight="bold"
+        >
+          Your Stats
+        </Text>
+        <List>
+          <ListItem>one</ListItem>
+          <ListItem>one</ListItem>
+          <ListItem>one</ListItem>
+        </List>
+      </Box>
 
-      {/* Middle Column (Feed) */}
-      <GridItem colSpan={2}>
-        <Box>
-          <Heading as="h1" size="xl" mb={4}>
-            Post Something
-          </Heading>
-          {/* Post Input */}
-          <Box mb={4}>
-            <Textarea placeholder="Write something..." size="lg" resize="none" />
-            <Button colorScheme="blue" mt={2}>
-              Post
-            </Button>
-          </Box>
-
-          {/* Previous Feed Posts */}
-          <Feed
-            name="Mohd Ahmad"
-            title="Software Engineer"
-            content="Please help me, I need an urgent help. I want an internship or full time work. If any one knows then help me  "
-            likes={10}
-            dislikes={4} comments={0} />
+      <Box w="60vw" display="flex" flexDirection="column">
+        <Flex
+          direction="column"
+          alignItems="flex-end"
+          border="1px solid #9B6ADE"
+          borderRadius="0.5vw"
+          padding="2vw"
+          shadow="md"
+        >
+          <HStack justifyContent="start" alignItems="start" spacing="2">
+            <Avatar name="nnam" />
+            <Textarea
+              width="53.5vw"
+              color="#9B6ADE"
+              border="1px solid #9B6ADE"
+              placeholder="Hey There! I'm here to say..."
+              resize="none"
+            />
+          </HStack>
+          <Button
+            variant="solid"
+            color="#fff"
+            bgColor="#9B6ADE"
+            w="fit-content"
+            mt="2"
+          >
+            Send
+          </Button>
+        </Flex>
+        <Box my="2vh">
+          {[...Array(40)].map((index) => (
+            <Feed
+              key={index}
+              name={""}
+              title={""}
+              content={""}
+              likes={0}
+              dislikes={0}
+              comments={0}
+            />
+          ))}
         </Box>
-      </GridItem>
+      </Box>
 
-      {/* Right Column (Ads or Suggestions) */}
-      <GridItem colSpan={1}>
-        <Box>
-          {/* Add ads or suggestions here */}
-        </Box>
-      </GridItem>
-    </Grid>
+      <Box width="10vw"></Box>
+    </Flex>
   </FeedLayout>
 );
 

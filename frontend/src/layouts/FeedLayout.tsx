@@ -12,7 +12,7 @@ const FeedLayout = ({ children }: Props) => {
   return (
     <Box>
       <Navbar />
-      {children}
+      <Box my="8">{children}</Box>
     </Box>
   );
 };
