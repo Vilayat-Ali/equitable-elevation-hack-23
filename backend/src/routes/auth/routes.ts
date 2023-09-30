@@ -12,18 +12,16 @@ export class AuthRoutes {
 
     public static async register(req: Request, res: Response) {
         try {
-            const {username, email, password, role: userDefinedRole} = req.body;
+            const {username, email, password} = req.body;
             const hashedPassword: string = AuthHelper.hashPassword(password);
-            const role: 'User' | 'Admin' = typeof userDefinedRole === "undefined" ? 'User' : 'Admin';
 
             const payload: UserType = {
                 username, 
                 email,
                 password: hashedPassword,
-                role
             };
 
-            const token: string = AuthHelper.generateToken({username, email, role});
+            const token: string = AuthHelper.generateToken({username, email});
             await UserHelper.addUser(payload);
             return res.json({success: true, access_token: token});
         } catch(err: any) {
@@ -47,7 +45,7 @@ export class AuthRoutes {
                 return res.json({success: false, message: 'Invalid password!'});
             }
 
-            const token: string = AuthHelper.generateToken({username: user.username, email: user.email, role: user.role});
+            const token: string = AuthHelper.generateToken({username: user.username, email: user.email});
             return res.json({success: true, access_token: token});
         } catch(err: any) {
             console.log(err);

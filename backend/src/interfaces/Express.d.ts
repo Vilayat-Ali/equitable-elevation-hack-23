@@ -5,6 +5,5 @@ export interface AuthenticatedRequest extends Request {
   user: {
     username: string;
     email: string;
-    role: "Admin" | "User";
   };
 }

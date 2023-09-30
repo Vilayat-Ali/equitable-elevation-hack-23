@@ -5,15 +5,19 @@ import { exit } from "process";
 
 // models
 import { UserSchema } from "./models/user.model";
+import { PostSchema } from "./models/post.model";
 
 // types
 import { UserType } from "../interfaces/User";
+import { PostType } from "../interfaces/Post";
 
 export class Mongo {
     public userModel: mongoose.Model<UserType>;
+    public postModel: mongoose.Model<PostType>;
 
     constructor() {
         this.userModel = mongoose.model("user", UserSchema);
+        this.postModel = mongoose.model("post", PostSchema);
     }
 
     public async connect() {
