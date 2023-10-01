@@ -9,6 +9,7 @@ import {
   Icon,
   Button,
   Input,
+  VStack,
 } from '@chakra-ui/react';
 import { FiThumbsUp, FiThumbsDown, FiMessageCircle, FiEdit } from 'react-icons/fi';
 
@@ -25,6 +26,8 @@ interface FeedProps {
 const Feed: React.FC<FeedProps> = ({ name, title, content, likes, dislikes, comments, imageUrl }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(content);
+  const [showComments, setShowComments] = useState(false);
+  const [newComment, setNewComment] = useState('');
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -33,6 +36,15 @@ const Feed: React.FC<FeedProps> = ({ name, title, content, likes, dislikes, comm
   const handleSaveClick = () => {
     setIsEditing(false);
     // Handle saving edited content here (e.g., send it to a server)
+  };
+
+  const handleCommentClick = () => {
+    setShowComments(!showComments);
+  };
+
+  const handleAddComment = () => {
+    // Handle adding a new comment here
+    setNewComment('');
   };
 
   return (
@@ -70,7 +82,7 @@ const Feed: React.FC<FeedProps> = ({ name, title, content, likes, dislikes, comm
         <Flex alignItems="center">
           <IconButton aria-label="Like" icon={<Icon as={FiThumbsUp} />} variant="ghost" mr={2} />
           <IconButton aria-label="Dislike" icon={<Icon as={FiThumbsDown} />} variant="ghost" mr={2} />
-          <IconButton aria-label="Comment" icon={<Icon as={FiMessageCircle} />} variant="ghost" />
+          <IconButton aria-label="Comment" icon={<Icon as={FiMessageCircle} />} variant="ghost" onClick={handleCommentClick} />
           {isEditing ? (
             <Button colorScheme="blue" size="sm" onClick={handleSaveClick} ml={2}>
               Save
@@ -87,6 +99,19 @@ const Feed: React.FC<FeedProps> = ({ name, title, content, likes, dislikes, comm
           )}
         </Flex>
       </Flex>
+      {showComments && (
+        <VStack mt={4}>
+          {/* Display comments here */}
+          <Input
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+            placeholder="Add a comment..."
+          />
+          <Button colorScheme="blue" size="sm" onClick={handleAddComment}>
+            Add Comment
+          </Button>
+        </VStack>
+      )}
     </Box>
   );
 };
